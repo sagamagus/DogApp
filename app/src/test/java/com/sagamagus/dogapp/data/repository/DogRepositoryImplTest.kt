@@ -1,11 +1,10 @@
-package com.sagamagus.dogapp
+package com.sagamagus.dogapp.data.repository
 
 import com.sagamagus.dogapp.data.local.DogDao
 import com.sagamagus.dogapp.data.local.DogEntity
 import com.sagamagus.dogapp.data.mapper.toDomain
 import com.sagamagus.dogapp.data.remote.DogApiService
 import com.sagamagus.dogapp.data.remote.DogDto
-import com.sagamagus.dogapp.data.repository.DogRepositoryImpl
 import io.mockk.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest

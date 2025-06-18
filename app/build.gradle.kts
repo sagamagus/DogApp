@@ -14,7 +14,7 @@ android {
         minSdk = 28
         targetSdk = 36
         versionCode = 1
-        versionName = "1.0.0.00003"
+        versionName = "1.0.0.00004"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -56,7 +56,6 @@ dependencies {
     implementation(libs.androidx.compose.material)
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.compose.ui.tooling.preview)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui.graphics)
@@ -66,21 +65,22 @@ dependencies {
     // Lifecycle + ViewModel
     implementation(libs.androidx.lifecycle.runtime)
     implementation(libs.androidx.lifecycle.viewmodel)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
 
     // Retrofit
     implementation(libs.retrofit)
     implementation(libs.retrofit.moshi)
+
+    //Moshi
+    implementation(libs.moshi)
+    implementation(libs.moshi.kotlin)
+    kapt(libs.moshi.codegen)
 
     // Room
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
     debugImplementation(libs.androidx.ui.test.manifest)
     kapt(libs.room.compiler)
-
-    //Moshi
-    implementation(libs.moshi)
-    implementation(libs.moshi.kotlin)
-    kapt(libs.moshi.codegen)
 
     // Coil
     implementation(libs.coil.compose)

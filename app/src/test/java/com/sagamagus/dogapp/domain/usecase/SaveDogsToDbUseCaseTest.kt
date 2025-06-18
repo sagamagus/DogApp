@@ -1,8 +1,7 @@
-package com.sagamagus.dogapp
+package com.sagamagus.dogapp.domain.usecase
 
 import com.sagamagus.dogapp.domain.model.DogModel
 import com.sagamagus.dogapp.domain.repository.DogRepository
-import com.sagamagus.dogapp.domain.usecase.SaveDogsToDbUseCase
 import io.mockk.coVerify
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi

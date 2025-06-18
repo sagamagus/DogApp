@@ -19,7 +19,7 @@ fun DogItem(dog: DogModel) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(8.dp),
+            .padding(8.dp, 8.dp, 8.dp, 38.dp),
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(
             containerColor = com.sagamagus.dogapp.ui.theme.Card // o cualquier color que desees
@@ -34,14 +34,14 @@ fun DogItem(dog: DogModel) {
         ) {
             Image(
                 modifier = Modifier
-                    .width(160.dp)
-                    .height(240.dp)
+                    .width(140.dp)
+                    .height(210.dp)
                     .clip(RoundedCornerShape(16.dp)),
                 painter = rememberAsyncImagePainter(dog.image),
                 contentDescription = dog.dogName,
                 contentScale = ContentScale.FillBounds
             )
-            Spacer(modifier = Modifier.width(12.dp))
+            Spacer(modifier = Modifier.width(24.dp))
             Column(
                 verticalArrangement = Arrangement.Center,
                 modifier = Modifier

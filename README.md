@@ -11,6 +11,15 @@ Just run the unit tests and everything will be fine
 
 ## Changelog
 
+### Version 1.0.0.00004 - 2025-06-18 15:32
+
+**New Features**
+* **💎 Added use cases unit tests**
+* **💎 Added viewModel unit tests**
+
+**Upgrades**
+* **✅ Minor visual adjustments to DogItem**
+
 ### Version 1.0.0.00003 - 2025-06-17 20:45
 
 **New Features**
