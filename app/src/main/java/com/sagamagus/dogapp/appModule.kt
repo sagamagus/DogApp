@@ -8,6 +8,10 @@ import com.sagamagus.dogapp.domain.repository.DogRepository
 import com.sagamagus.dogapp.domain.usecase.GetDogsFromApiUseCase
 import com.sagamagus.dogapp.domain.usecase.GetDogsFromDbUseCase
 import com.sagamagus.dogapp.domain.usecase.SaveDogsToDbUseCase
+import com.sagamagus.dogapp.presentation.DogViewModel
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -16,9 +20,15 @@ val appModule = module {
 
     // Retrofit
     single {
+        Moshi.Builder()
+            .add(KotlinJsonAdapterFactory())
+            .build()
+    }
+
+    single {
         Retrofit.Builder()
             .baseUrl("https://jsonblob.com/api/")
-            .addConverterFactory(MoshiConverterFactory.create())
+            .addConverterFactory(MoshiConverterFactory.create(get()))
             .build()
             .create(DogApiService::class.java)
     }
@@ -48,5 +58,12 @@ val appModule = module {
     factory { GetDogsFromDbUseCase(repository = get()) }
     factory { SaveDogsToDbUseCase(repository = get()) }
 
-
+    // ViewModel
+    viewModel {
+        DogViewModel(
+            getDogsFromApiUseCase = get(),
+            getDogsFromDbUseCase = get(),
+            saveDogsToDbUseCase = get()
+        )
+    }
 }
