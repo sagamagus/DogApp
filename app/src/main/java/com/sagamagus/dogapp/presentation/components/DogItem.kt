@@ -12,6 +12,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import com.sagamagus.dogapp.domain.model.DogModel
+import com.sagamagus.dogapp.ui.theme.DogAppTheme
 
 
 @Composable
@@ -22,7 +23,7 @@ fun DogItem(dog: DogModel) {
             .padding(8.dp, 8.dp, 8.dp, 38.dp),
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(
-            containerColor = com.sagamagus.dogapp.ui.theme.Card // o cualquier color que desees
+            containerColor = MaterialTheme.colorScheme.surface // o cualquier color que desees
         ),
         elevation = CardDefaults.cardElevation(4.dp)
     ) {
@@ -48,11 +49,18 @@ fun DogItem(dog: DogModel) {
                     .fillMaxHeight()
                     .padding(end = 8.dp)
             ) {
-                Text(text = dog.dogName, style = MaterialTheme.typography.titleMedium)
+                Text(text = dog.dogName,
+                    style = MaterialTheme.typography.titleMedium,
+                    color = MaterialTheme.colorScheme.onBackground)
                 Spacer(modifier = Modifier.height(10.dp))
-                Text(text = dog.description, style = MaterialTheme.typography.bodySmall, maxLines = 3)
+                Text(text = dog.description,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurface,
+                    maxLines = 3)
                 Spacer(modifier = Modifier.height(15.dp))
-                Text(text = "Almost ${dog.age} years", style = MaterialTheme.typography.bodyMedium)
+                Text(text = "Almost ${dog.age} years",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onBackground)
             }
         }
     }
